@@ -2,7 +2,7 @@
 //Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
 // Initializes the page with a default plot
 function init() {
-  d3.json("/samples.json").then(function(data){
+  d3.json("/Plotly-Challenge/samples.json").then(function(data){
     console.log(data);
   
     var samp_data = data.names;
@@ -14,7 +14,7 @@ function init() {
     var otuIds = data.samples[0].otu_ids;
     var otuLabels = data.samples[0].otu_labels;
     var otu_ids = otuIds.map(d => `OTU ${d.toString()}`)
-    var sliced = (otu_ids.slice(0,10));
+    var sliced = otu_ids.slice(0,10);
 
     var meta_id = data.metadata[0].id;
     var meta_eth = data.metadata[0].ethnicity;
@@ -96,6 +96,7 @@ function updatePlotly(){
   
     var otu_ids = otuIds.map(d => `OTU ${d.toString()}`)
     var sliced = (otu_ids.slice(0,10))
+  
 
     Plotly.restyle("bar", "x", [samp_val]);
     Plotly.restyle("bar", "y", [sliced]);

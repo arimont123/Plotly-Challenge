@@ -78,7 +78,7 @@ function init() {
 d3.selectAll("#selDataset").on("change", updatePlotly);
   // This function is called when a dropdown menu item is selected
 function updatePlotly(){
-  d3.json("/samples.json").then(function(data){
+  d3.json("/Plotly-Challenge/samples.json").then(function(data){
     // Use D3 to select the dropdown menu
     var dropdownMenu = d3.select("#selDataset");
       // Assign the value of the dropdown menu option to a variable
